@@ -28,6 +28,12 @@ body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    height: 100%;
 }
 
 /* Animated Forest Background */
@@ -154,7 +160,62 @@ body {
 
 /* Cassette Tape Animation */
 .cassette-tape {
-    display: none;
+    display: block;
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--bark-brown) 0%, var(--earth-brown) 100%);
+    border: 3px solid var(--golden-amber);
+    border-radius: 12px;
+    position: relative;
+    margin: 1rem auto;
+    box-shadow: 0 8px 24px rgba(26, 26, 26, 0.6);
+}
+
+.tape-reels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.reel {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--golden-amber);
+    border-radius: 50%;
+    background: var(--moss-green);
+    position: relative;
+    animation: tape-spin 3s linear infinite;
+}
+
+.reel::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: var(--golden-amber);
+    border-radius: 50%;
+}
+
+.tape-window {
+    width: 80px;
+    height: 20px;
+    background: rgba(244, 241, 222, 0.1);
+    border: 1px solid var(--sage-green);
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes tape-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* Navigation */
@@ -198,6 +259,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
 }
 
 .content-section {
@@ -626,9 +688,24 @@ body {
         font-size: 1.5rem;
     }
     .neon-text {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .title-text {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    .year {
+        font-size: 1.2rem;
+    }
+    .cassette-tape {
+        width: 160px;
+        height: 100px;
+    }
+    .reel {
+        width: 30px;
+        height: 30px;
+    }
+    .tape-window {
+        width: 60px;
+        height: 15px;
     }
 } 
